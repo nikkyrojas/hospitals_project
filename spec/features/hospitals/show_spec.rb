@@ -5,7 +5,7 @@ require 'rails_helper'
 # When I visit '/parents'
 # Then I see the name of each parent record in the system
 RSpec.describe 'this page shows hospitals' do
-    it 'displays all hospital' do
+    it 'displays all hospitals with some attributes' do
         hospital = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
         hospital_2 = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver')
         
@@ -13,7 +13,10 @@ RSpec.describe 'this page shows hospitals' do
         save_and_open_page
 
         expect(page).to have_content(hospital.name)
+        expect(page).to have_content(hospital.location)
+        expect(page).to have_content(hospital.phone)
         expect(page).to have_content(hospital_2.name)
+      
 
     end
     
@@ -29,18 +32,23 @@ RSpec.describe 'this page shows hospitals' do
         expect(page).to_not have_content(hospital_2.name)
 
     end
-    
-    # it 'displays the name of hospital the doctor works at ' do
-    #     hospital = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
-    #     doctor = hospital.doctors.create!(name: 'Theodore Seuss', probono: true, specialty: 'Pediatrics')
-    #     doctor_2 = hospital.doctors.create!(name: 'Gregory House', probono: false, specialty: 'Diagnostic Medicine')
+  
+    it 'displays individual hospital attributes' do
+        hospital = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
+        hospital_2 = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver')
         
-    #     visit "/doctors/#{doctor.id}"
-    #     save_and_open_page
+        visit "/hospitals/#{hospital.id}"
+        
+        save_and_open_page
 
-    #     expect(page).to have_content(hospital.name)
+        expect(page).to have_content(hospital.phone)
+        expect(page).to have_content(hospital.location)
+        expect(page).to have_content(hospital.public)
+        expect(page).to_not have_content(hospital_2.phone)
+        
+
+    end
     
-    # end
 
 
 end 
