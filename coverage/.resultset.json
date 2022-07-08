@@ -259,7 +259,7 @@
       "/Users/nikkyrojas/turing/2mod/hospitals_project/app/models/hospital.rb": {
         "lines": [
           1,
-          null,
+          1,
           null
         ]
       },
@@ -278,7 +278,7 @@
           null,
           null,
           1,
-          null,
+          1,
           null,
           null,
           null
@@ -291,6 +291,6 @@
         ]
       }
     },
-    "timestamp": 1657320815
+    "timestamp": 1657322959
   }
 }
