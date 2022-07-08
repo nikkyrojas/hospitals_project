@@ -7,3 +7,4 @@ class HospitalsController < ApplicationController
     #     @hospital = Hospital.find(params[:id])
     # end
 end
+
