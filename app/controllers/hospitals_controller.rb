@@ -3,8 +3,8 @@ class HospitalsController < ApplicationController
         @hospitals = Hospital.all
     end
 
-    # def show
-    #     @hospital = Hospital.find(params[:id])
-    # end
+    def show
+        @hospital = Hospital.find(params[:id])
+    end
 end
 
