@@ -1,4 +1,13 @@
+
 <h1><%= @hospital.name %></h1>
 <p>Public Hospital: <%= @hospital.public %></p>
 <p>Phone: (303) <%= @hospital.phone %></p>
 <p>Location City: <%= @hospital.location %></p>
+
+<h3>
+<% @doctors.each do |doctor| %>
+<p><%= link_to doctor.name, "/doctors/#{doctor.id}"%></p>
+<% end %>
+<h3>
+
+
