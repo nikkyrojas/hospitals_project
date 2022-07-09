@@ -245,7 +245,8 @@
           1,
           1,
           1,
-          null,
+          1,
+          1,
           null,
           null,
           null
@@ -278,10 +279,13 @@
           null
         ]
       },
-      "/Users/nikkyrojas/turing/2mod/hospitals_project/app/controllers/hospital_doctors_controller.rb": {
+      "/Users/nikkyrojas/turing/2mod/hospitals_project/app/controllers/doctors_controller.rb": {
         "lines": [
           1,
           1,
+          1,
+          null,
+          null,
           1,
           1,
           null,
@@ -295,6 +299,6 @@
         ]
       }
     },
-    "timestamp": 1657326773
+    "timestamp": 1657380607
   }
 }

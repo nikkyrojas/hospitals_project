@@ -1,6 +1,8 @@
 class HospitalDoctorsController < ApplicationController
     def index
-        hospital = Hospital.find(params[:id])
+        binding.pry
+        hospital = Hospital.find(params[:hospital_id])
+        binding.pry
         @doctors = hospital.doctors
     end
 end
