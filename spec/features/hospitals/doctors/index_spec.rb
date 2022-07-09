@@ -1,10 +1,6 @@
 require 'rails_helper'
 
-# For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
-RSpec.describe 'this page shows indvidual hospital with attributes and doctors' do
+RSpec.describe 'Hospital doctors index' do
     before :each do
         @childrens = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
         @dr_seuss = @childrens.doctors.create!(name: 'Theodore Seuss', probono: true, specialty: 'Pediatrics', license: 234124, hospital_id:1)
@@ -13,38 +9,15 @@ RSpec.describe 'this page shows indvidual hospital with attributes and doctors' 
         @dr_grey = @jude.doctors.create(name: 'Meredith Grey', probono: true, specialty: 'General Surgery', license: 346432,  hospital_id:2)
     end
     
-    it 'displays hospital' do
-
-        visit "/hospitals/#{@childrens.id}"
-
-        expect(page).to have_content(@childrens.name)
-        expect(page).to_not have_content(@jude.name)
-    end
-  
-    it 'displays individual hospital attributes' do
-
-        visit "/hospitals/#{@childrens.id}"
-        
-        # save_and_open_page
-
-        expect(page).to have_content(@childrens.phone)
-        expect(page).to have_content(@childrens.location)
-        expect(page).to have_content(@childrens.public)
-        expect(page).to_not have_content(@jude.phone)
-    end
-
-
-    it 'displays the name of all doctors' do
-    
-        visit "/hospitals/#{@childrens.id}"
+    it 'shows the name of all doctors for that hospital' do
+        visit "/hospitals/#{@childrens.id}/doctors"
 
         expect(page).to have_content(@dr_seuss.name)
         expect(page).to have_content(@dr_house.name)
     end
-
-
+    
     it 'links to each doctors page' do
-        visit "/hospitals/#{@childrens.id}"
+        visit "/hospitals/#{@childrens.id}/doctors"
         
         click_on @dr_seuss.name
 
@@ -52,4 +25,4 @@ RSpec.describe 'this page shows indvidual hospital with attributes and doctors' 
 
     end
 
-end 
+end

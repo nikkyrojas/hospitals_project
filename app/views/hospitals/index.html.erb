@@ -1,6 +1,6 @@
 <h1> Hospitals </h1>
 <% @hospitals.each do |hospital| %>
-    <h3><%= hospital.name%></h3>
+    <h3><%= link_to hospital.name, "/hospitals/#{hospital.id}" %></h3>
     <p>Phone: (303) <%= hospital.phone %></p>
     <p>Location City: <%= hospital.location %></p>
     
