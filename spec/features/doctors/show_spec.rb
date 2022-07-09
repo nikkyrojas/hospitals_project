@@ -35,6 +35,12 @@ RSpec.describe 'this page displays doctors' do
         expect(page).to_not have_content(dr_house.probono)
         expect(page).to_not have_content(dr_house.license)
 
+    it 'links to each doctors page' do
+        visit "/doctors"
+
+        click_on @dr_seuss.name
+
+        expect(current_path).to eq("/doctors/#{@dr_seuss.id}")
     end
 
 end 
