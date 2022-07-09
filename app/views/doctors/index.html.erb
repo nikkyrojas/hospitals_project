@@ -1,0 +1,6 @@
+<h1> Doctors </h1>
+<% @doctors.each do |doctor| %>
+    <h3><%= doctor.name%></h3>
+    <p>Specialty: <%= doctor.specialty %></p>
+
+<% end %>
