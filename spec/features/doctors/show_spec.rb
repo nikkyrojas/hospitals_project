@@ -34,13 +34,34 @@ RSpec.describe 'this page displays doctors' do
         expect(page).to_not have_content(dr_house.name)
         expect(page).to_not have_content(dr_house.probono)
         expect(page).to_not have_content(dr_house.license)
+    end
 
     it 'links to each doctors page' do
+        childrens = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
+        dr_seuss = childrens.doctors.create!(name: 'Theodore Seuss', probono: true, specialty: 'Pediatrics', license: 234124)
+        dr_house = childrens.doctors.create!(name: 'Gregory House', probono: false, specialty: 'Diagnostic Medicine', license: 543466)
+        jude = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver')
+
         visit "/doctors"
 
-        click_on @dr_seuss.name
+        click_on dr_seuss.name
 
-        expect(current_path).to eq("/doctors/#{@dr_seuss.id}")
+        expect(current_path).to eq("/doctors/#{dr_seuss.id}")
     end
+
+    # it 'links to all hospitals' do
+    #     childrens = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
+    #     dr_seuss = childrens.doctors.create!(name: 'Theodore Seuss', probono: true, specialty: 'Pediatrics', license: 234124)
+    #     dr_house = childrens.doctors.create!(name: 'Gregory House', probono: false, specialty: 'Diagnostic Medicine', license: 543466)
+    #     jude = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver')
+
+    #     visit "/doctors"
+
+    #     click_on href="/hospitals"
+
+    #     expect(current_path).to eq("/hospitals")
+    # end
+
+    
 
 end 
