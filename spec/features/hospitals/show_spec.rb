@@ -52,4 +52,7 @@ RSpec.describe 'this page shows indvidual hospital with attributes and doctors' 
 
     end
 
+
+    it 'shows '
+
 end 
