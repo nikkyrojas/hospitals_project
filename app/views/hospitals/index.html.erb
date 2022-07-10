@@ -1,8 +1,14 @@
 <h1> Hospitals </h1>
-<% @hospitals.each do |hospital| %>
-    <h3><%= link_to hospital.name, "/hospitals/#{hospital.id}" %></h3>
-    <p>Phone: (303) <%= hospital.phone %></p>
-    <p>Location City: <%= hospital.location %></p>
-    
 
-<% end %>
+<ul id="hospitals"> 
+    <% @hospitals.each_with_index do |hospital, index| %>
+        <li id=<%= "#{index}"%>>
+            <h3><%= link_to hospital.name, "/hospitals/#{hospital.id}" %></h3>
+            <h6><%= hospital.created_at %></h6>
+            <p>Phone: (303) <%= hospital.phone %></p>
+            <p>Location City: <%= hospital.location %></p>
+            
+        </li>
+    <% end %>
+</ul>
+
