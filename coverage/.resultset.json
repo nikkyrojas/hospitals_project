@@ -264,7 +264,7 @@
           null,
           null,
           1,
-          6,
+          0,
           null,
           null,
           null
@@ -284,19 +284,15 @@
           null
         ]
       },
-      "/Users/nikkyrojas/turing/2mod/hospitals_project/app/controllers/hospitals_controller.rb": {
+      "/Users/nikkyrojas/turing/2mod/hospitals_project/app/controllers/doctors_controller.rb": {
         "lines": [
           1,
           1,
-          0,
-          null,
+          3,
           null,
           null,
           1,
-          5,
-          5,
-          null,
-          null,
+          2,
           null,
           null
         ]
@@ -306,21 +302,8 @@
           1,
           null
         ]
-      },
-      "/Users/nikkyrojas/turing/2mod/hospitals_project/app/controllers/doctors_controller.rb": {
-        "lines": [
-          1,
-          1,
-          0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1657469107
+    "timestamp": 1657475843
   }
 }
