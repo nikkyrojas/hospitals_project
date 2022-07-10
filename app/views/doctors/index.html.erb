@@ -1,4 +1,5 @@
 <h1> Doctors </h1>
+<a href="/hospitals">All Hospitals</a>
 <% @doctors.each do |doctor| %>
     <h3><%= link_to doctor.name, "/doctors/#{doctor.id}"%></h3>
     <p>Specialty: <%= doctor.specialty %></p>
