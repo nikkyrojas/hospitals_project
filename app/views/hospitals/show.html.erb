@@ -8,10 +8,11 @@
 <p>Location City: <%= @hospital.location %></p>
 <p>Total Doctors: <%= @hospital.doctor_count%></p>
 
+
+
 <h3>
 <% @doctors.each do |doctor| %>
 <p><%= link_to doctor.name, "/doctors/#{doctor.id}"%></p>
 <% end %>
 <h3>
-
 
