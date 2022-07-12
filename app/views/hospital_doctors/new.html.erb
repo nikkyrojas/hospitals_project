@@ -1,0 +1,8 @@
+<%= form_with url: "/hospitals/#{@hospital.id}/doctors/", method: :post, local: true do |form|%>
+
+<%= form.label :name %>
+<%= form.text_field :name %>
+
+<%= form.submit "Create Doctor" %>
+
+<% end %>
