@@ -8,6 +8,20 @@ class HospitalsController < ApplicationController
         @hospital = Hospital.find(params[:id])
         @doctors = @hospital.doctors
     end
+    
+    def new
+    end
 
+    def create
+        Hospital.create(hospital_params)
+        redirect_to "/hospitals"
+        # Hospital.create(name: params[:name]) is the syntax 
+        #to just have onee attribute)
+    end
+
+private
+    def hospital_params
+        params.permit(:name, :location, :phone, :public)
+    end
 end
 

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'this page shows hospitals' do
     before :each do 
-        @childrens = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora')
-        @jude = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver')
-        @rose = Hospital.create!(name: 'Rose Medical', public: false, phone: 3045454, location: 'Denver')
+        @childrens = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora', created_at: "2022-06-13 15:58:46")
+        @jude = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver', created_at: "2022-06-11 15:58:46")
+        @rose = Hospital.create!(name: 'Rose Medical', public: false, phone: 3045454, location: 'Denver', created_at: "2022-06-10 15:58:46")
         
     end
    
@@ -28,36 +28,32 @@ RSpec.describe 'this page shows hospitals' do
         expect(current_path).to eq("/hospitals/#{@childrens.id}")
     end
 
-    # it 'displays hospitals by time they were created (most recent first)' do
+    # it 'displays ordered hospitals by time they were created (most recent first)' do
     #     visit "/hospitals"
-    #     binding.pry
+    #      save_and_open_page
 
-    #     expect(index[0]).to eq(@rose)
+    #     within '#hospitals-0' do
+    #         expect(page).to have_content('Childrens Hospital')
+    #     end
+
+    #     within '#hospitals-1' do
+    #      expect(page).to have_content('Saint Judes')
+    #     end
+        
+
     # end
+    it 'has a link to a form to add a hospital' do
+        visit "/hospitals"
+        
+        click_link 'Add Hospital'
+
+        expect(current_path).to eq("/hospitals/new")
+
+        fill_in "Name", with: "Concentra"
+        click_on "Create Hospital"
+
+        expect(current_path).to eq("/hospitals")
+        expect(page).to have_content("Concentra")
+    end
+
 end
-#   it "returns a published post" do
-#     expect(Post.published.count).to be(1)
-#     # or inspect to see if it's published, but that's a bit redundant
-#   end
-
-#   it "does not return unpublished posts" do
-#     expect(Post.published).to_not include(Post.where("status = 0"))
-#   end
-# RSpec.describe 'this page shows hospitals' do
-#     before :each do 
-#         @childrens = Hospital.create!(name: 'Childrens Hospital', public: true, phone: 6213333, location: 'Aurora', created_at: "2022-07-07 15:58:46", id:1)
-#         @jude = Hospital.create!(name: 'Saint Judes', public: false, phone: 3092332, location: 'Denver', created_at: "2022-07-08 15:58:46", id:2)
-#         @rose = Hospital.create!(name: 'Rose Medical', public: false, phone: 3045454, location: 'Denver', created_at: "2022-07-09 15:58:46", id:3)
-#         @hospitals = [@childrerns, @jude, @rose]
-#         binding.pry
-#     end
-
-#     it 'sorts recent added hospitals first' do
-
-#         expect(@hospitals.first.created_at.id).to be < (@hospitals.first.created_at.id)
-#         newest_hospitals = @hospitals.newest
-#         assert_operator newest_hospitals.first.created_at, :>=, newest_hospitals.second.created_at
-#         assert_operator newest_hospitals.first.created_at, :>=, newest_hospitals.third.created_at
-#         assert_operator newest_hospitals.second.created_at, :>=, newest_hospitals.third.created_at
-#     end
-# end
