@@ -9,7 +9,7 @@ RSpec.describe 'Hospital doctors index' do
         @dr_grey = @jude.doctors.create(name: 'Meredith Grey', probono: true, specialty: 'General Surgery', license: 346432,  hospital_id:2)
     end
     
-    it 'shows the name of all doctors for that hospital' do
+    it 'displays the name of all doctors for that hospital' do
         visit "/hospitals/#{@childrens.id}/doctors"
 
         expect(page).to have_content(@dr_seuss.name)
@@ -22,7 +22,7 @@ RSpec.describe 'Hospital doctors index' do
         click_on @dr_seuss.name
 
         expect(current_path).to eq("/doctors/#{@dr_seuss.id}")
-
     end
+
 
 end
