@@ -19,6 +19,19 @@ class HospitalsController < ApplicationController
         #to just have onee attribute)
     end
 
+    def update
+         @hospital = Hospital.find(params[:id])
+        # @hospital.update(hospital_params)
+        # redirect_to "/hospitals/:id"
+        #redirect_to "/hospitals/#{new_hospital_id}"
+    end
+
+    def updated
+        @hospital = Hospital.find(params[:id])
+        @hospital.update(hospital_params)
+        redirect_to "/hospitals"
+    end
+
 private
     def hospital_params
         params.permit(:name, :location, :phone, :public)

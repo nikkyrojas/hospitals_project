@@ -1,8 +1,13 @@
 
-<h1><%= @hospital.name %></h1>
-    <div class="doctors_link">
-    <a href="/doctors">All Doctors</a>
-    </div> 
+<h1><%= @hospital.name %></h1> 
+
+<div class="update_hospital_link">
+<%= link_to "Update Hospital", "/hospitals/:id/update" %>
+</div> 
+
+<div class="doctors_link">
+<a href="/doctors">All Doctors</a>
+</div> 
 <p>Public Hospital: <%= @hospital.public %></p>
 <p>Phone: (303) <%= @hospital.phone %></p>
 <p>Location City: <%= @hospital.location %></p>

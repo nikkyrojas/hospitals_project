@@ -11,7 +11,7 @@
 <ul id="hospitals"> 
     <% @hospitals.each_with_index do |hospital, index| %>
         <li id=<%= "#{index}"%>>
-            <h3><%= link_to hospital.name, "/hospitals/#{hospital.id}" %></h3>
+            <h3><%= link_to hospital.name, "/hospitals/#{hospital.id}" %> <%= button_to "Update #{hospital.name}", "/hospitals/#{hospital.id}/update", method: :get %></h3>
             <h6><%= hospital.created_at %></h6>
             <p>Phone: (303) <%= hospital.phone %></p>
             <p>Location City: <%= hospital.location %></p>
