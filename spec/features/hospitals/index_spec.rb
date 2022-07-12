@@ -42,18 +42,6 @@ RSpec.describe 'this page shows hospitals' do
         
 
     # end
-    it 'has a link to a form to add a hospital' do
-        visit "/hospitals"
-        
-        click_link 'Add Hospital'
 
-        expect(current_path).to eq("/hospitals/new")
-
-        fill_in "Name", with: "Concentra"
-        click_on "Create Hospital"
-
-        expect(current_path).to eq("/hospitals")
-        expect(page).to have_content("Concentra")
-    end
 
 end

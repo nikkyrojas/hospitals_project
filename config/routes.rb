@@ -5,8 +5,11 @@ Rails.application.routes.draw do
 
   get '/hospitals', to: 'hospitals#index'
   get '/hospitals/new', to: 'hospitals#new'
+  get '/hospitals/:id/update', to: 'hospitals#update'
+  patch '/hospitals/:id', to: 'hospitals#updated'
   get '/hospitals/:id', to: 'hospitals#show'
   post '/hospitals', to: 'hospitals#create'
+  
 
   get '/hospitals/:hospital_id/doctors', to: 'hospital_doctors#index'
   # get '/hospitals/:hospital_id/doctors', to: 'hospital_doctors#show'
