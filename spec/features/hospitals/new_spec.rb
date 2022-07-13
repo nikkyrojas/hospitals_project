@@ -12,8 +12,6 @@
         fill_in "Name", with: "Concentra"
         click_button "Create Hospital"
 
-        new_hospital_id= Hospital.last.id
-
         expect(current_path).to eq("/hospitals")
         expect(page).to have_content("Concentra")
     end

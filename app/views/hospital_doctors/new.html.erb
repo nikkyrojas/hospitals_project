@@ -1,8 +1,14 @@
-<%= form_with url: "/hospitals/#{@hospital.id}/doctors/", method: :post, local: true do |form|%>
+<%= form_with url: "/hospitals/#{@hospital_id}/doctors", method: :post, local: true do |form|%>
 
 <%= form.label :name %>
 <%= form.text_field :name %>
+<%= form.label :specialty %>
+<%= form.text_field :specialty %>
+<%= form.label :license %>
+<%= form.text_field :license %>
+<%= form.label :probono %>
+<%= form.text_field :probono %>
 
-<%= form.submit "Create Doctor" %>
+<%= form.submit "Add Doctor" %>
 
 <% end %>
