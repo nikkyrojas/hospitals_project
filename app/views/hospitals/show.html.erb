@@ -14,10 +14,9 @@
 <p>Total Doctors: <%= @hospital.doctor_count%></p>
 
 
-
 <h3>
 <% @doctors.each do |doctor| %>
-<p><%= link_to doctor.name, "/doctors/#{doctor.id}"%></p>
+<p><%= link_to doctor.name, "/hospitals/#{@hospital.id}/doctors"%></p>
 <% end %>
 <h3>
 

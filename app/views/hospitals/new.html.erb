@@ -1,6 +1,12 @@
 <%= form_with url: "/hospitals", method: :post, local: true do |form|%>
 <%= form.label :name %>
 <%= form.text_field :name %>
+<%= form.label :location %>
+<%= form.text_field :location %>
+<%= form.label :public %>
+<%= form.text_field :public %>
+<%= form.label :phone %>
+<%= form.text_field :phone %>
 
 <%= form.submit "Create Hospital" %>
 

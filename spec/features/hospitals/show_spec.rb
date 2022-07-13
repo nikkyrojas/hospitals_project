@@ -36,7 +36,7 @@ RSpec.describe 'this page shows indvidual hospital with attributes and doctors' 
 
     it 'displays the name of all doctors' do
     
-        visit "/hospitals/#{@childrens.id}"
+        visit "/hospitals/#{@childrens.id}/doctors"
 
         expect(page).to have_content(@dr_seuss.name)
         expect(page).to have_content(@dr_house.name)
@@ -48,7 +48,7 @@ RSpec.describe 'this page shows indvidual hospital with attributes and doctors' 
         
         click_on @dr_seuss.name
 
-        expect(current_path).to eq("/doctors/#{@dr_seuss.id}")
+        expect(current_path).to eq("/hospitals/#{@childrens.id}/doctors")
     end
 
 

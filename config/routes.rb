@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
 
   get '/hospitals/:hospital_id/doctors', to: 'hospital_doctors#index'
-  # get '/hospitals/:hospital_id/doctors', to: 'hospital_doctors#show'
+  get '/hospitals/:hospital_id/doctors/new', to: 'hospital_doctors#new'
+  post '/hospitals/:hospital_id/doctors', to: 'hospital_doctors#create'
 
 end

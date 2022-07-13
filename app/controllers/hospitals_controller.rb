@@ -20,10 +20,11 @@ class HospitalsController < ApplicationController
     end
 
     def update
-         @hospital = Hospital.find(params[:id])
+        @hospital = Hospital.find(params[:id])
+       
         # @hospital.update(hospital_params)
         # redirect_to "/hospitals/:id"
-        #redirect_to "/hospitals/#{new_hospital_id}"
+        # redirect_to "/hospitals/#{new_hospital_id}"
     end
 
     def updated
